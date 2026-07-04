@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════════════════
+   ENLACE DEL REPOSITORIO GIT
+   Evidencia: GA7-220501096-AA5-EV01
+   EduNotas - API de Autenticación (Node.js + Express)
+═══════════════════════════════════════════════════════════
+
+REPOSITORIO EN GITHUB:
+https://github.com/[TU_USUARIO_GITHUB]/edunotas-api-auth
+
+INSTRUCCIONES PARA CLONAR:
+  git clone https://github.com/[TU_USUARIO_GITHUB]/edunotas-api-auth.git
+  cd edunotas-api-auth
+  npm install
+  npm start
+
+═══════════════════════════════════════════════════════════
+   PASOS PARA SUBIR EL PROYECTO A GITHUB
+═══════════════════════════════════════════════════════════
+
+1. cd NOMBRE_APELLIDO_AA5_EV01
+
+2. git init
+   git add .
+   git commit -m "feat: API de autenticacion con Node.js y JWT"
+
+3. Crear repositorio en https://github.com/new
+   - Nombre: edunotas-api-auth
+   - Descripción: API REST de registro y login con JWT
+   - NO marcar "Add a README"
+
+4. git branch -M main
+   git remote add origin https://github.com/TU_USUARIO/edunotas-api-auth.git
+   git push -u origin main
+
+═══════════════════════════════════════════════════════════
+   IMPORTANTE
+═══════════════════════════════════════════════════════════
+
+Reemplaza [TU_USUARIO_GITHUB] por tu usuario real de GitHub.

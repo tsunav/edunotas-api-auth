@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "EduNotas Auth API",
+    "description": "Colección de Postman para probar la API de autenticación - AA5-EV01",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Home (health check)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/"
+      }
+    },
+    {
+      "name": "2. Registrar usuario",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/auth/registro",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"María Pérez\",\n  \"correo\": \"maria@edunotas.com\",\n  \"password\": \"MiClave123\",\n  \"rol\": \"docente\"\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Login (correcto)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "  const data = pm.response.json();",
+              "  pm.collectionVariables.set('token', data.token);",
+              "  console.log('Token guardado:', data.token);",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/auth/login",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"correo\": \"admin@edunotas.com\",\n  \"password\": \"Admin123!\"\n}"
+        }
+      }
+    },
+    {
+      "name": "4. Login (credenciales incorrectas)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/auth/login",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"correo\": \"admin@edunotas.com\",\n  \"password\": \"claveIncorrecta\"\n}"
+        }
+      }
+    },
+    {
+      "name": "5. Verificar token",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/auth/verificar",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ]
+      }
+    },
+    {
+      "name": "6. Listar usuarios",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/auth/usuarios"
+      }
+    }
+  ]
+}

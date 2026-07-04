@@ -1,0 +1,25 @@
+{
+  "name": "edunotas-api-auth",
+  "version": "1.0.0",
+  "description": "API de autenticación - Evidencia GA7-220501096-AA5-EV01",
+  "main": "src/servidor.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/servidor.js",
+    "dev": "node --watch src/servidor.js"
+  },
+  "keywords": [
+    "api",
+    "auth",
+    "sena",
+    "edunotas"
+  ],
+  "author": "Aprendiz SENA",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
